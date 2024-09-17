@@ -1,4 +1,4 @@
-setNumber = input("Write the value: ")
+setNumber = input("Write the integer value: ")
 counter = 1
 value = 0
 factorialValue = 0

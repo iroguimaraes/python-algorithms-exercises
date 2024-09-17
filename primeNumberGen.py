@@ -10,16 +10,19 @@ except ValueError:
     print("Invalid input. Please enter a valid integer.")
 
 
-
-def primeNumberList(setNumberStart, setNumberEnd):
-    if setNumberStart < 1 or setNumberEnd < 1:
-        return False
-    for divisor in range(setNumberStart, setNumberEnd + 1):
-        if setNumberStart % divisor == 0:
-            return False  # Found a divisor, so it's not prime
-    return True
+def primeNumberList(start, end):
+    primes = []
+    for num in range(max(2, start), end + 1):
+        is_prime = True
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes.append(num)
+    return primes
 
 if setNumberStart > setNumberEnd:
     print("Start can't be bigger than End!") 
-elif primeNumberList(setNumberStart, setNumberEnd):
-    print(f"{setNumberStart}, its a prime number.")
+primeNumbers = primeNumberList(setNumberStart, setNumberEnd)
+print(f"{primeNumbers}, its/are prime number.")
